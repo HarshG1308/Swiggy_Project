@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 
 function Search({ setAllRestaurant, restArr }) {
     function handleSearch(event) {

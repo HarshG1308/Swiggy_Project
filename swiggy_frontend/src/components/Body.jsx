@@ -33,7 +33,7 @@ function Body() {
 
   return (
     <div className="ml-20 mt-4 ">
-       <h1 className="text-2xl my-4 font-bold">Restaurants with online food delivery in Mathura</h1>
+       <h1 className="text-2xl my-4 font-bold">Restaurants with online food delivery in Agra</h1>
        <button className={setActive1 ? "border rounded-2xl p-2 mx-4 bg-orange-500" : "border rounded-2xl p-2 mx-4"} onClick={averageRating}>Ratings 4.5+</button>
        <button className={setActive2 ? "border rounded-2xl p-2 mx-4 bg-orange-500" : "border rounded-2xl p-2 mx-4"} onClick={handleReset}>Reset</button>
         <Search setAllRestaurant={setAllRestaurant} restArr={restArr} />
