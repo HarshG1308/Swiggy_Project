@@ -4,14 +4,18 @@ import App from './App.jsx'
 import Offer from './components/Offer.jsx'
 import Body from './components/Body.jsx'
 import Help from './components/Help.jsx'
+import Error from './Error.jsx'
+import RestaurantDetails from './RestaurantDetails.jsx'
 import SignIn from './components/SignIn.jsx'
 import { RouterProvider, Routes } from "react-router"
 import { createBrowserRouter } from 'react-router-dom';
+import Clock from './Clock.jsx'
 
 const appRoutes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -28,6 +32,14 @@ const appRoutes = createBrowserRouter([
     {
       path: "/SignIn",
       element: <SignIn />,
+    },
+    {
+      path: "/restaurants/:id",
+      element: <RestaurantDetails />,
+    },
+    {
+      path : "/clock",
+      element : <Clock />,
     }
     ]
   }
