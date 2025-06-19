@@ -2,7 +2,7 @@ import React from 'react'
 
 function Offer() {
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-2xl shadow-lg">
+      <div className="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-2xl shadow-lg">
       <h1 className="text-3xl font-bold text-orange-600 mb-6">Latest Offers & Deals</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-xl flex flex-col justify-between shadow">
