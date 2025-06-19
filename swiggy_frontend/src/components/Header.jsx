@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header(){
+    const cartItems = useSelector((store) => store.cart.items);
     return(
         <div className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
             <div className="flex items-center gap-4">
@@ -26,7 +28,7 @@ function Header(){
                 </div>
                 <div className="flex items-center gap-2 cursor-pointer hover:text-orange-500 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.5l.375 2.25M6 16.5A2.25 2.25 0 008.25 18.75h7.5A2.25 2.25 0 0018 16.5m-12 0V6.75m0 0L4.125 5.25m1.875 1.5h12.75m0 0l.375-2.25m-.375 2.25V16.5m0 0a2.25 2.25 0 01-2.25 2.25h-7.5A2.25 2.25 0 016 16.5z" /></svg>
-                    <span>Cart</span>
+                    <Link to="/cart">Cart - {cartItems.length}</Link>
                 </div>
             </div>
         </div>

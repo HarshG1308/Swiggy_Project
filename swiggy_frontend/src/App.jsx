@@ -2,14 +2,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Body from './components/Body'
 import { Outlet } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import appStore from './utils/appStore';
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-      <Outlet />
-      <Footer></Footer>
-    </div>
+    <Provider store={appStore}>
+      <div className="App">
+        <Header></Header>
+        <Outlet />
+        <Footer></Footer>
+      </div>
+    </Provider>
   );
 }
 

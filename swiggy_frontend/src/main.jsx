@@ -10,6 +10,7 @@ import SignIn from './components/SignIn.jsx'
 import { RouterProvider, Routes } from "react-router"
 import { createBrowserRouter } from 'react-router-dom';
 import Clock from './Clock.jsx'
+import Cart from './components/Cart.jsx'
 
 const appRoutes = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const appRoutes = createBrowserRouter([
     {
       path : "/clock",
       element : <Clock />,
+    },
+    {
+      path : "/cart",
+      element : <Cart/>,
     }
     ]
   }

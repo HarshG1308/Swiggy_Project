@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { addItem } from './utils/cartSlice';
 
 function RestaurantDetails() {
     let { id } = useParams();
@@ -25,6 +27,11 @@ function RestaurantDetails() {
         calling();
     },[id]);
 
+    const dispatch = useDispatch();
+    function handleAddItem(item) {
+        dispatch(addItem(item));
+    }
+
     if (loading) return <div className="ml-20 mt-4">Loading...</div>;
 
     return (
@@ -45,6 +52,7 @@ function RestaurantDetails() {
               <div className="flex gap-2 mt-auto">
                 <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">{item.card.info.ratings?.aggregatedRating?.rating || 'N/A'} ★</span>
                 <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">{item.card.info.isVeg ? 'Veg' : 'Non-Veg'}</span>
+                <button className="bg-orange-500 text-white px-2 py-1 rounded text-xs font-semibold transition-all duration-200 hover:bg-orange-600" onClick={() => handleAddItem(item.card.info)}>Add to Cart</button>
               </div>
             </div>
         ))}

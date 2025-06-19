@@ -1,12 +1,70 @@
-# React + Vite
+# Swiggy Frontend Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive food delivery web app inspired by Swiggy, built with React, Redux Toolkit, Tailwind CSS, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse restaurants and menus with real Swiggy API data
+- Search, filter, and sort menu items
+- Add/remove items to cart with Redux state management
+- View cart with total price and item details
+- Beautiful, mobile-friendly UI with Tailwind CSS
+- Offers, Help, and Sign In pages
+- Routing with React Router
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd Swiggy_Project/swiggy_frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Project Structure
+
+```
+swiggy_frontend/
+  src/
+    components/      # React components (Header, Body, Cart, etc.)
+    utils/           # Redux slices and store
+    App.jsx          # Main app component
+    main.jsx         # Entry point
+    index.css        # Tailwind CSS
+  public/            # Static assets
+  vite.config.js     # Vite config
+  package.json       # Project metadata
+```
+
+## Tech Stack
+- React
+- Redux Toolkit
+- React Router
+- Tailwind CSS
+- Vite
+- Axios
+
+## Customization
+- Update API endpoints in `ApiCalling.js` and `RestaurantDetails.jsx` for your location or mock data.
+- Edit Tailwind classes for custom styling.
+
+## License
+This project is for educational/demo purposes only. Not affiliated with Swiggy.
