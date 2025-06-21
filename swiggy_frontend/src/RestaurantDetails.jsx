@@ -38,24 +38,29 @@ function RestaurantDetails() {
     <div className="ml-20 mt-4">
       <h1 className="text-3xl my-6 font-extrabold text-orange-600">Restaurant Menu</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-11/12">
-        {restInfo.length === 0 ? <div className="col-span-full text-lg text-gray-500">No menu found.</div> : restInfo.map((item) => (
-            <div key={item.card.info.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col items-center border border-orange-100">
+        {restInfo.length === 0 ? <div className="col-span-full text-lg text-gray-500">No menu found.</div> : restInfo.map((item) => {
+          const info = item.card.info;
+          // Prefer price, then defaultPrice, fallback to 0
+          const price = info.price !== undefined ? info.price : (info.defaultPrice !== undefined ? info.defaultPrice : 0);
+          return (
+            <div key={info.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow p-6 flex flex-col items-center border border-orange-100 relative group">
               <img
-                className="w-40 h-40 object-cover rounded-xl mb-4 border border-gray-200"
-                src={item.card.info.imageId ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/${item.card.info.imageId}` : 'https://via.placeholder.com/150'}
-                alt={item.card.info.name}
+                className="w-40 h-40 object-cover rounded-xl mb-4 border border-gray-200 group-hover:scale-105 transition-transform"
+                src={info.imageId ? `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/${info.imageId}` : 'https://via.placeholder.com/150'}
+                alt={info.name}
               />
-              <h2 className="font-bold text-lg text-center mb-2 text-gray-800">{item.card.info.name}</h2>
-              <span className="text-orange-600 font-semibold text-md mb-1">{item.card.info.price ? `₹${item.card.info.price/100}` : 'Price N/A'}</span>
-              <span className="text-xs text-gray-500 mb-1">{item.card.info.category}</span>
-              <p className="text-gray-600 text-sm mb-2 text-center">{item.card.info.description}</p>
-              <div className="flex gap-2 mt-auto">
-                <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">{item.card.info.ratings?.aggregatedRating?.rating || 'N/A'} ★</span>
-                <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">{item.card.info.isVeg ? 'Veg' : 'Non-Veg'}</span>
-                <button className="bg-orange-500 text-white px-2 py-1 rounded text-xs font-semibold transition-all duration-200 hover:bg-orange-600" onClick={() => handleAddItem(item.card.info)}>Add to Cart</button>
+              <h2 className="font-bold text-lg text-center mb-2 text-gray-800 group-hover:text-orange-600 transition-colors">{info.name}</h2>
+              <span className="text-orange-600 font-semibold text-md mb-1">₹{price/100}</span>
+              <span className="text-xs text-gray-500 mb-1">{info.category}</span>
+              <p className="text-gray-600 text-sm mb-2 text-center line-clamp-2">{info.description}</p>
+              <div className="flex gap-2 mt-auto items-center">
+                <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">{info.ratings?.aggregatedRating?.rating || 'N/A'} ★</span>
+                <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">{info.isVeg ? 'Veg' : 'Non-Veg'}</span>
+                <button className="bg-orange-500 text-white px-3 py-1 rounded text-xs font-semibold transition-all duration-200 hover:bg-orange-600 shadow" onClick={() => handleAddItem({...info, price})}>Add to Cart</button>
               </div>
             </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )

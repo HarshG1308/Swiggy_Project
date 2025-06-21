@@ -25,13 +25,13 @@ function Cart() {
                   <h2 className="font-semibold text-lg text-gray-800">{item.name}</h2>
                   <div className="text-sm text-gray-500">{item.category || ''}</div>
                 </div>
-                <span className="font-bold text-orange-600 text-lg">{item.price ? `₹${item.price/100}` : ''}</span>
+                <span className="font-bold text-orange-600 text-lg">₹{(item.price !== undefined ? item.price : (item.defaultPrice !== undefined ? item.defaultPrice : 0))/100}</span>
               </li>
             ))}
           </ul>
           <div className="flex justify-between items-center mb-6">
             <span className="font-semibold text-xl text-gray-700">Total Items: {cartItems.length}</span>
-            <span className="font-bold text-xl text-green-600">Total: ₹{cartItems.reduce((sum, item) => sum + (item.price || 0), 0)/100}</span>
+            <span className="font-bold text-xl text-green-600">Total: ₹{cartItems.reduce((sum, item) => sum + (item.price !== undefined ? item.price : (item.defaultPrice !== undefined ? item.defaultPrice : 0)), 0)/100}</span>
           </div>
         </>
       )}
