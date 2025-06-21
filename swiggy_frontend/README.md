@@ -22,7 +22,7 @@ A modern, responsive food delivery web app inspired by Swiggy, built with React,
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone (https://github.com/HarshG1308/Swiggy_Project/tree/main)
    cd Swiggy_Project/swiggy_frontend
    ```
 2. Install dependencies:
