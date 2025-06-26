@@ -4,12 +4,12 @@ import App from './App.jsx'
 import Offer from './components/Offer.jsx'
 import Body from './components/Body.jsx'
 import Help from './components/Help.jsx'
-import Error from './Error.jsx'
+import Error from './components/Error.jsx'
 import RestaurantDetails from './RestaurantDetails.jsx'
 import SignIn from './components/SignIn.jsx'
 import { RouterProvider, Routes } from "react-router"
 import { createBrowserRouter } from 'react-router-dom';
-import Clock from './Clock.jsx'
+import Clock from './components/Clock.jsx'
 import Cart from './components/Cart.jsx'
 
 const appRoutes = createBrowserRouter([
