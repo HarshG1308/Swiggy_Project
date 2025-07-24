@@ -5,7 +5,7 @@ import Offer from './components/Offer.jsx'
 import Body from './components/Body.jsx'
 import Help from './components/Help.jsx'
 import Error from './components/Error.jsx'
-import RestaurantDetails from './RestaurantDetails.jsx'
+import RestaurantDetails from './components/RestaurantDetails.jsx'
 import SignIn from './components/SignIn.jsx'
 import { RouterProvider, Routes } from "react-router"
 import { createBrowserRouter } from 'react-router-dom';

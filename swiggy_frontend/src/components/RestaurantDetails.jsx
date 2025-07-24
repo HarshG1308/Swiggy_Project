@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { addItem } from './utils/cartSlice';
+import { addItem } from '../utils/cartSlice';
 
 function RestaurantDetails() {
     let { id } = useParams();
